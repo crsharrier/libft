@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include<stdio.h>
+
 char	*ft_strstr(char *str, char *to_find)
 {
 	char	*needle;
@@ -37,4 +39,19 @@ char	*ft_strstr(char *str, char *to_find)
 		str++;
 	}
 	return (0);
+}
+
+int	main(void)
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = "Hello World";
+	str2 = "llo";
+	printf("str1 = \"Hello World\", str2 = \"llo\"\n");
+	printf("Result for strstr: %s\n", strstr(str1, str2));
+	str1 = "Hello World";
+	str2 = "llo";
+	printf("Result for ft_strstr: %s\n", ft_strstr(str1, str2));
+	return(0);
 }
