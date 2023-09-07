@@ -1,22 +1,13 @@
 #include<stdio.h>
-#include<strings.h>
+#include<string.h>
 
-void	*ft_bzero(void *s, size_t n)
-{
-	size_t i;
-	unsigned char *p = s;
-
-	i = 0;
-	while(i < n)
-		p[i++] = (unsigned char)'\0';
-	return(s);
-}
+void	*ft_bzero(void *s, int n);
 
 int	main()
 {
-	size_t i;
-	char string[11];
-	char ft_string[11];
+	char	string[11];
+	char	ft_string[11];
+	int		i;
 
 	i = 0;
 	strncpy(string, "helloWorld", 11);
