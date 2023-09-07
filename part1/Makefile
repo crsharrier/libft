@@ -1,29 +1,27 @@
-NAME :=        libft.a
-PARENT_DIR		= $(shell dirname $(shell pwd))
-SRCS :=        $(wildcard ../*.c)
-OBJS :=        $(SRCS:.c=.o)
+NAME: =libft.a
+CC:= cc
+CFLAGS:= -Wall -Wextra -Werror
+SRCS:= $(wildcard ../*.c)
+OBJS:= $(SRCS:.c=.o)
+HEADERS:= $(wildcard ./includes/*.h)
+AR := ar rcs
+RM := rm -f
 
-CC :=        cc
-CFLAGS :=    -Wall -Wextra -Werror
 
-AR :=        ar rcs
+all: $(NAME)
 
-RM :=        rm -f
-
-%.o:        %.c
-			$(CC) $(CFLAGS) -I ./includes -c $< -o $@
-
-$(NAME):    $(OBJS)
-			$(AR) $@ $^
-
-all:        $(NAME)
+$(NAME): $(OBJS)
+	$(AR) $@ $^
 
 clean:
-			$(RM) $(OBJS)
+	$(RM) $(OBJS)
 
-fclean:        clean
-			$(RM) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-re:            fclean all
+re: fclean all
 
-.PHONY:        all clean fclean re
+%.o: %.c
+	$(CC) $(CFLAGS) -I ./includes -c $< -o $@
+
+.PHONY: all clean fclean re
