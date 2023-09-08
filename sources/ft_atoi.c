@@ -6,10 +6,10 @@
 /*   By: csharrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 20:43:04 by csharrie          #+#    #+#             */
-/*   Updated: 2023/03/18 11:15:11 by csharrie         ###   ########.fr       */
+/*   Updated: 2023/09/08 13:54:27 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*#include <stdio.h>*/
+
 #include <unistd.h>
 
 int	ft_power(int nb, int power)
@@ -72,7 +72,7 @@ int	ft_atoi(char *str)
 		total *= -1;
 	return (total);
 }
-/*
+
 int	main(void)
 {
 	printf("Result for ---+--+1234ab567 = %i\n", ft_atoi("---+--+1234ab567"));
@@ -82,4 +82,4 @@ int	main(void)
 	printf("Result for 12 34 = %i\n", ft_atoi("12 34"));
 	printf("Result for 0 = %i\n", ft_atoi("0"));
 	return (0);
-}*/
+}

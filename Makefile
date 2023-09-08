@@ -6,9 +6,9 @@ strlcat strchr strrchr strnstr strncmp atoi isalpha isdigit isalnum \
 isascii isprint toupper tolower calloc strdup substr strjoin strtrim \
 split itoa strmapi putchar_fd putstr_fd putendl_fd putnbr_fd striteri
 SRCS := $(shell find ./sources -name ft_*.c)
-TESTS := $(shell find ./tests -name test_*.c)
 OBJS:= $(SRCS:.c=.o)
 INCLUDES:= $(wildcard ./includes/*.h)
+TEST_DIR:= ./tests/
 AR := ar rcs
 RM := rm -f
 
@@ -18,8 +18,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
-test $(MANDATORY): ./sources/ft_$(MANDATORY).c ./tests/test_$(MANDATORY).c
-	$(CC) $(CFLAGS) $^ -o $@
+test:
+	make -sC $(TEST_DIR)
 
 clean:
 	$(RM) $(OBJS)
