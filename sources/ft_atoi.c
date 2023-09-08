@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csharrie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 20:43:04 by csharrie          #+#    #+#             */
-/*   Updated: 2023/09/08 13:54:27 by csharrie         ###   ########.fr       */
+/*   Updated: 2023/09/08 14:39:39 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,4 @@ int	ft_atoi(char *str)
 	if (minus_count % 2 == 1)
 		total *= -1;
 	return (total);
-}
-
-int	main(void)
-{
-	printf("Result for ---+--+1234ab567 = %i\n", ft_atoi("---+--+1234ab567"));
-	printf("Result for ---+ --+1234ab567 = %i\n", ft_atoi("---+ --+1234ab567"));
-	printf("Result for __---+--+1234ab567 = %i\n", ft_atoi("  ---+--+1234ab567"));
-	printf("Result for 1234 = %i\n", ft_atoi("1234"));
-	printf("Result for 12 34 = %i\n", ft_atoi("12 34"));
-	printf("Result for 0 = %i\n", ft_atoi("0"));
-	return (0);
 }

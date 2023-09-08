@@ -1,17 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/08 16:21:36 by csharrie          #+#    #+#             */
+/*   Updated: 2023/09/08 16:40:03 by csharrie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include<stdio.h>
 
-int	isprint(int c)
+int	ft_isprint(int c)
 {
 	if(c >= 0 && c <= 31)
-		return(1);
-	return(0);
-}
-
-int	main()
-{
-	printf("ft_isprint(4) = %i\n", isprint(4));
-	printf("ft_isprint(31) = %i\n", isprint(31));
-	printf("ft_isprint(' ') = %i\n", isprint(' '));
-	printf("ft_isprint('9') = %i\n", isprint('9'));
-	return(0);
+		return(0);
+	return(16384);
 }

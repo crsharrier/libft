@@ -1,17 +1,18 @@
-#include<stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/08 15:10:35 by csharrie          #+#    #+#             */
+/*   Updated: 2023/09/08 16:11:36 by csharrie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	isascii(int c)
+int	ft_isascii(int c)
 {
-	if(c >= 33 && c <= 127)
+	if(c >= 0 && c <= 127)
 		return(1);
-	return(0);
-}
-
-int	main()
-
-	printf("ft_isalpha('A') = %i\n", isalpha('A'));
-	printf("ft_isalpha('z') = %i\n", isalpha('z'));
-	printf("ft_isalpha('{') = %i\n", isalpha('{'));
-	printf("ft_isalpha('@') = %i\n", isalpha('@'));
 	return(0);
 }

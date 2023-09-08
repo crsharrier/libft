@@ -1,5 +1,14 @@
-/*#include<stdio.h>
-#include<ctype.h>*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/08 17:16:36 by csharrie          #+#    #+#             */
+/*   Updated: 2023/09/08 17:16:49 by csharrie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
@@ -7,16 +16,3 @@ int	ft_toupper(int c)
 		return(c - 32);
 	return(c);
 }
-
-/*
-int	main()
-{
-	printf("ft_toupper('e') = %i\n", ft_toupper('e'));
-	printf("ft_toupper('E') = %i\n", ft_toupper('E'));
-	printf("ft_toupper(4) = %i\n", ft_toupper(4));
-	printf("\n");
-	printf("toupper('e') = %i\n", toupper('e'));
-	printf("toupper('E') = %i\n", toupper('E'));
-	printf("toupper(4) = %i\n", toupper(4));
-	return(0);
-}*/

@@ -1,16 +1,7 @@
 #include<stdio.h>
 #include<string.h>
-
-void	*ft_bzero(void *s, int n);
-
-void	print_chars(char *ptr, int size)
-{
-	int	i;
-
-	i = 0;
-	while(i < size)
-		printf("%c", ptr[i++]);
-}
+#include"libft.h"
+#include"testing.h"
 
 int	test1()
 {
@@ -45,10 +36,6 @@ int	main(void)
 
 	if (test1() != 0)
 		pass = 0;
-	if (pass == 1)
-		printf("\033[32mft_bzero = OK!\n");
-	else
-		printf("\033[31mft_bzero = KO!\n");
-	printf("\033[0m");
+	ok_ko("bzero", pass);
 	return(0);
 }

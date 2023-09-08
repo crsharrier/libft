@@ -19,7 +19,7 @@ $(NAME): $(OBJS)
 	$(AR) $@ $^
 
 test:
-	make -sC $(TEST_DIR)
+	@make -sC $(TEST_DIR)
 
 clean:
 	$(RM) $(OBJS)
