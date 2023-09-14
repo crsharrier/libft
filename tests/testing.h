@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<string.h>
 
 void	print_chars(char *ptr, int size)
 {
@@ -46,6 +47,21 @@ int     compare_outputs_int_int(int *arr, size_t len, int (*f1)(int), int (*f2)(
                 len--;
                 printf("ft_result(%i) = %i\nog_result(%i) = %i\n", arr[len], (*f1)(arr[len]), arr[len], (*f2)(arr[len])); 
                 if ((*f1)(arr[len]) != (*f2)(arr[len]))
+                        pass = 0;
+        }
+        return (pass);
+}
+
+int     compare_outputs_charptr_constcharptr(char **arr, size_t len, char*(*f1)(const char*), char*(*f2)(const char*))
+{
+        int     pass;
+
+        pass = 1;
+        while (len)
+        {
+                len--;
+                printf("ft_result(%s) = %s\nog_result(%s) = %s\n", arr[len], (*f1)(arr[len]), arr[len], (*f2)(arr[len])); 
+                if (strcmp((*f1)(arr[len]), (*f2)(arr[len])) != 0)
                         pass = 0;
         }
         return (pass);

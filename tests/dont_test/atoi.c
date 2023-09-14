@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:09:27 by csharrie          #+#    #+#             */
-/*   Updated: 2023/09/08 14:45:30 by csharrie         ###   ########.fr       */
+/*   Updated: 2023/09/12 07:37:05 by crsharrier       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,13 @@ int	test_atoi(char *str)
 
 int	main(void)
 {
-	char	*str1;
-	char	*str2;
-	char	*str3;
-	char	*str4;
+	char	*str1 = "---+--+1234ab567";
+	char	*str2 = "1234";
+	char	*str3 = "12 34";
+	char	*str4 = "0";
+	char	*str5 = "   39";
 	int	pass;
 
-	str1 = "---+--+1234ab567";
-	str2 = "1234";
-	str3 = "12 34";
-	str4 = "0";
 	pass = 1;
 	if (!test_atoi(str1))
 		pass = 0;
@@ -49,6 +46,8 @@ int	main(void)
 	if (!test_atoi(str3))
 		pass = 0;
 	if (!test_atoi(str4))
+		pass = 0;
+	if (!test_atoi(str5))
 		pass = 0;
 
 	ok_ko("ft_atoi", pass);

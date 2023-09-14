@@ -11,4 +11,3 @@ int	main()
     ok_ko("isdigit", pass);
     return (0);
 }
-

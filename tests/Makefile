@@ -23,4 +23,7 @@ $(MANDATORY): %: %.out
 clean:
 	@rm -f *.out
 
+fclean: clean
+	@rm -f *.txt
+
 .PHONY: all clean
