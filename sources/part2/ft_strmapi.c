@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 13:43:19 by csharrie          #+#    #+#             */
-/*   Updated: 2023/09/14 08:25:38 by crsharrier       ###   ########.fr       */
+/*   Created: 2023/09/13 08:56:43 by crsharrier        #+#    #+#             */
+/*   Updated: 2023/09/14 08:32:16 by crsharrier       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
-int	ft_memcmp(void *s1, void *s2, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	unsigned char	*c1;
-	unsigned char	*c2;
+	char	*new_str;
+	int		i;
+	int		j;
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	if (n == 0)
-		return (0);
 	i = 0;
-	while (i < n)
-	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		c1++;
-		c2++;
+	j = 0;
+	while (s[i])
 		i++;
+	new_str = malloc(sizeof(char) * (i + 1));
+	if (new_str == NULL)
+		return (NULL);
+	while (j < i)
+	{
+		new_str[j] = (*f)(j, s[j]);
+		j++;
 	}
-	return (0);
+	new_str[j] = '\0';
+	return (new_str);
 }

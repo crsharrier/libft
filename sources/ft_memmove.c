@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 13:43:19 by csharrie          #+#    #+#             */
-/*   Updated: 2023/09/14 08:25:38 by crsharrier       ###   ########.fr       */
+/*   Created: 2023/09/14 06:13:09 by crsharrier        #+#    #+#             */
+/*   Updated: 2023/09/14 08:27:11 by crsharrier       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-int	ft_memcmp(void *s1, void *s2, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
-	unsigned char	*c1;
-	unsigned char	*c2;
+	unsigned char	*charsrc;
+	unsigned char	*chardest;
+	unsigned char	temp[n];
+	unsigned int		i;
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	if (n == 0)
-		return (0);
+	charsrc = (unsigned char *)src;
+	chardest = (unsigned char *)dest;
 	i = 0;
 	while (i < n)
 	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		c1++;
-		c2++;
+		temp[i] = charsrc[i];
 		i++;
 	}
-	return (0);
+	while (i > 0)
+	{
+		chardest[i] = temp[i];
+		i--;
+	}
+	return ((void *)chardest);
 }

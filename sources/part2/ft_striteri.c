@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 13:43:19 by csharrie          #+#    #+#             */
-/*   Updated: 2023/09/14 08:25:38 by crsharrier       ###   ########.fr       */
+/*   Created: 2023/09/13 08:33:51 by crsharrier        #+#    #+#             */
+/*   Updated: 2023/09/14 08:30:42 by crsharrier       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-int	ft_memcmp(void *s1, void *s2, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t	i;
-	unsigned char	*c1;
-	unsigned char	*c2;
+	int	i;
+	int	j;
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	if (n == 0)
-		return (0);
 	i = 0;
-	while (i < n)
-	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		c1++;
-		c2++;
+	j = 0;
+	while (s[i])
 		i++;
-	}
-	return (0);
+	while (j < i)
+		(*f)(j++, s);
 }

@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 13:43:19 by csharrie          #+#    #+#             */
-/*   Updated: 2023/09/14 08:25:38 by crsharrier       ###   ########.fr       */
+/*   Created: 2023/09/13 08:09:11 by crsharrier        #+#    #+#             */
+/*   Updated: 2023/09/14 08:18:11 by crsharrier       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <unistd.h>
 
-int	ft_memcmp(void *s1, void *s2, size_t n)
+void ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	unsigned char	*c1;
-	unsigned char	*c2;
+	int to_write;
 
-	c1 = (unsigned char *)s1;
-	c2 = (unsigned char *)s2;
-	if (n == 0)
-		return (0);
-	i = 0;
-	while (i < n)
+	if (n == -2147483648)
 	{
-		if (*c1 != *c2)
-			return (*c1 - *c2);
-		c1++;
-		c2++;
-		i++;
+		write(fd, "-2147483648", 11);
+		return;
 	}
-	return (0);
+	if (n / 10)
+		ft_putnbr_fd(n / 10, fd);
+	to_write = 48 + (n % 10);
+	write(fd, &to_write, 1);
 }

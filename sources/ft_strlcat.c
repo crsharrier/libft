@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csharrie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:45:49 by csharrie          #+#    #+#             */
-/*   Updated: 2023/03/16 10:01:07 by csharrie         ###   ########.fr       */
+/*   Updated: 2023/09/14 08:31:28 by crsharrier       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	str_len(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (*(str + i))
@@ -22,8 +22,8 @@ int	str_len(char *str)
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int	i;
-	char			*orig_dest;
+	char	*orig_dest;
+	unsigned int		i;
 
 	i = 0;
 	orig_dest = dest;

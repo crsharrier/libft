@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:09:43 by csharrie          #+#    #+#             */
-/*   Updated: 2023/09/08 17:09:46 by csharrie         ###   ########.fr       */
+/*   Updated: 2023/09/14 08:21:51 by crsharrier       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
+#include <stdio.h>
 
 int	ft_isalpha(int c)
 {
-	if(c >= 'A' && c <= 'z')
-	{
-		return(1024);
-	}
-	return(0);
+	if (c >= 'A' && c <= 'z')
+		return (1024);
+	return (0);
 }

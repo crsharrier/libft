@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 16:21:36 by csharrie          #+#    #+#             */
-/*   Updated: 2023/09/08 16:40:03 by csharrie         ###   ########.fr       */
+/*   Updated: 2023/09/14 08:22:44 by crsharrier       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
+#include <stdio.h>
 
 int	ft_isprint(int c)
 {
-	if(c >= 0 && c <= 31)
-		return(0);
-	return(16384);
+	if (c >= 0 && c <= 31)
+		return (0);
+	return (16384);
 }

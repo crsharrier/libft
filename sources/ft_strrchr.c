@@ -1,29 +1,34 @@
-#include<stdio.h>
-#include<string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/12 08:38:12 by crsharrier        #+#    #+#             */
+/*   Updated: 2023/09/14 08:35:37 by crsharrier       ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char	*ft_strrchr(char *s, int c)
+#include <string.h>
+
+char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	char	*p;
+	int		i;
 
 	i = 0;
-	while (s[i++])
-		s++;
+	p = (char *)s;
+	while (p++)
+		i++;
+	if (c == '\0')
+		return (p);
 	while (i)
 	{
-		if (*s == c)
-			return (s);
+		if (*p == c)
+			return (p);
 		i--;
-		s--;
+		p--;
 	}
-	return NULL;
-}
-
-int	main(void)
-{
-	char	*str;
-
-	str = "belly";
-	printf("ft_strrchr(str, 'l') = %p\n", ft_strrchr(str, 'l'));
-	printf("strrchr(str, 'l') = %p", strrchr(str, 'l'));
-	return (0);
+	return (NULL);
 }
