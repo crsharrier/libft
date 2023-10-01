@@ -8,7 +8,7 @@ SRCS_DIR:= ../sources/
 TEST_FILES:= $(wildcard ./*.c)
 TEST_TARGETS:= $(patsubst ./%.c, %.out, $(TEST_FILES))
 TEST_SRCS:= $(patsubst ./%.c, $(SRCS_DIR)ft_%.c, $(TEST_FILES))
-INCLUDES:= $(wildcard ../includes/*.h)
+INCLUDES:= $(wildcard ../*.h)
 
 all: $(TEST_TARGETS)
 
