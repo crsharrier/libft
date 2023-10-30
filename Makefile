@@ -3,7 +3,7 @@ CC:= gcc
 CFLAGS:= -Wall -Wextra -Werror
 SRCS := $(shell find . -name 'ft_*.c')
 OBJS:= $(SRCS:.c=.o)
-TEST_DIR:= ./tests/
+TEST_DIR:= ./my_tests/
 AR := ar rcs
 RM := rm -f
 
@@ -17,7 +17,7 @@ $(OBJS): %.o : %.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(SRCS):
-	$(CC) $(CFLAGS) $@ -o $*
+	$(CC) $(CFLAGS) $@ -o $* -I .
 
 test:
 	@make -sC $(TEST_DIR)

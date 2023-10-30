@@ -6,7 +6,7 @@
 /*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 14:32:49 by csharrie          #+#    #+#             */
-/*   Updated: 2023/10/01 09:12:56 by crsharrier       ###   ########.fr       */
+/*   Updated: 2023/10/13 15:33:48 by crsharrier       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	*ft_memset(void *s, int c, int n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void    *ft_memmove(void *dest, const void *src, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
 void    ft_putstr_fd(char const *s, int fd);
 void    ft_putchar_fd(char c, int fd);
 void    ft_putendl_fd(char const *s, int fd);
