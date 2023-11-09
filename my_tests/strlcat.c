@@ -5,27 +5,34 @@
 int main(void)
 {
 	int status;
+	int size;
 	char dest[30]; 
-	char *src = (char *)"HelloWorld";
+	char *src = (char *)"AAAAAAAAA";
 	
+	memset(dest, 0, 20);
+	memset(dest, 'C', 5);
 
-	memset(dest, 0, 30);
-	memset(dest, 'B', 4);
-	dest[0] = 'B';
+	printf("===== TEST1 =====\n");
+	size = -1;
+	printf("strlen(dest) = %lu\n", ft_strlen(dest));
+	printf("strlen(src) = %lu\n", ft_strlen(src));
+	printf("size = %i\n", size);
+	printf("strlcat(%s, %s, %i)\n", dest, src, size);
+	status = ft_strlcat(dest, src, size);
+	printf("dest after = %s\n", dest);
+	printf("status = %i", status);
 
-	printf("Dest before = %s\n", dest);
-	printf("strlen(src) = %lu\n", strlen(src));
 	printf("\n");
 	
+	/*
 	status = ft_strlcat(dest, src, 3);
 	printf("Dest after 3 = %s, status = %i\n", dest, status);
-	printf("Dest = %s\n", dest);
 	printf("strcmp(dest, \"BBBB\") = %i\n", strcmp(dest, "BBBB"));
 	printf("\n");
 
 	status = ft_strlcat(dest, src, 6);
-	printf("Dest after 6 = %s, status = %i\n", dest, status);
-	printf("Dest = %s\n", dest);
-	printf("strcmp(dest, \"BBBBH\") = %i\n", strcmp(dest, "BBBBH"));
+	printf("Src = %s, Dest after 6 = %s, status = %i\n", src, dest, status);
+	printf("strcmp(dest, \"BBBBA\") = %i\n", strcmp(dest, "BBBBA"));
+*/
 	return (0);
 }

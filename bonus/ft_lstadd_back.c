@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 16:35:21 by crsharrier        #+#    #+#             */
-/*   Updated: 2023/11/04 09:20:19 by csharrie         ###   ########.fr       */
+/*   Created: 2023/11/01 09:04:58 by csharrie          #+#    #+#             */
+/*   Updated: 2023/11/04 14:43:08 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+/*lst: The address of a pointer to the first link of
+a list.
+new: The address of a pointer to the node to be
+added to the list.
+*/
+
+void ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char	*result;
-	int		len;
-	int		i;
-	int		j;
-
-	len = ft_strlen((char *) s1) + ft_strlen((char *) s2);
-	result = malloc(sizeof(char) * len + 1);
-	result[len] = '\0';
-	i = 0;
-	while (s1[i])
-	{
-		result[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (s2[j])
-	{
-		result[i] = s2[j];
-		i++;
-		j++;
-	}
-	return (result);
+    if (*lst != NULL)
+        ft_lstlast(*lst)->next = new;
+    else
+        *lst = new;
 }

@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:22:54 by csharrie          #+#    #+#             */
-/*   Updated: 2023/09/15 07:16:04 by crsharrier       ###   ########.fr       */
+/*   Updated: 2023/11/04 09:13:58 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memset(void *s, int c, int n)
 {
-	int	i;
-	unsigned char		*p;
+	int				i;
+	unsigned char	*p;
 
 	p = s;
 	i = 0;

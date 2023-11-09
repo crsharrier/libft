@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:33:54 by crsharrier        #+#    #+#             */
-/*   Updated: 2023/09/28 10:04:36 by crsharrier       ###   ########.fr       */
+/*   Updated: 2023/11/04 10:07:16 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	is_in(char c, char const *set)
 	return (0);
 }
 
-int	get_new_len(char const *s1, char const *set)
+static int	get_new_len(char const *s1, char const *set)
 {
 	int		trim_start;
 	int		trim_end;
@@ -52,11 +52,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 
 	new_len = get_new_len(s1, set);
-	while (is_in(*s1++, set));
-	s1--;
 	new_str = malloc(sizeof(char) * (new_len + 1));
 	if (new_str == NULL)
 		return (NULL);
+	new_str[new_len] = '\0';
+	while (is_in(*s1, set))
+		s1++;
 	i = 0;
 	while (new_len)
 	{

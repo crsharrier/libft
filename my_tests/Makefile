@@ -1,9 +1,11 @@
-CC:= gcc
+CC:= cc
 CFLAGS:= -Wall -Wextra -I ../includes
 MANDATORY:= memset bzero memcpy memmove memchr memcmp strlen strlcpy \
 strlcat strchr strrchr strnstr strncmp atoi isalpha isdigit isalnum \
 isascii isprint toupper tolower calloc strdup substr strjoin strtrim \
 split itoa strmapi putchar_fd putstr_fd putendl_fd putnbr_fd striteri
+BONUS:= lstadd_back lstadd_front lstclear lstdelone lstiter lstlast \
+lstmap lstnew lstsize
 SRCS_DIR:= ../sources/
 TEST_FILES:= $(wildcard ./*.c)
 TEST_TARGETS:= $(patsubst ./%.c, %.out, $(TEST_FILES))

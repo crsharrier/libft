@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 08:38:12 by crsharrier        #+#    #+#             */
-/*   Updated: 2023/09/27 23:43:37 by crsharrier       ###   ########.fr       */
+/*   Updated: 2023/11/04 09:17:01 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*p;
-	int		i;
-	unsigned char cc;
+	char			*p;
+	int				i;
+	unsigned char	cc;
 
 	i = 0;
 	p = (char *)s;
@@ -35,5 +33,5 @@ char	*ft_strrchr(const char *s, int c)
 		i--;
 		p--;
 	}
-	return (NULL);
+	return (0);
 }

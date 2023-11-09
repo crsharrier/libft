@@ -3,51 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:25:27 by csharrie          #+#    #+#             */
-/*   Updated: 2023/10/01 14:04:17 by crsharrier       ###   ########.fr       */
+/*   Updated: 2023/11/01 17:01:05 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
-char	*ft_strnstr(char *big, char *little, size_t len)
+static int	check_substr(const char *big, const char *little, size_t len)
 {
-	char	*substring;
-	char	*result;
-	int	sub_len;
+	int	i;
 
-	sub_len = 0;
+	i = 0;
+	while (big[i] && big[i] == little[i] && len)
+	{
+		i++;
+		len--;
+	}	
+	if (little[i] == 0)
+		return (1);
+	return (0);
+}
+
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
 	if (!ft_strncmp(little, "", 2))
-		return (big);
-	substring = little;
+		return ((char *)big);
 	while (*big && len)
 	{
-		result = big;
-		if ((*substring && *substring == *big && len))
-		{
-			sub_len = 0;
-			while (*substring && *substring == *big && len)
-			{
-				big++;
-				substring++;
-				sub_len++;
-				len--;
-			}
-		}
-		else
-		{
-			big++;
-			len--;
-		}
-		if (*substring == '\0')
-			return (result);
-		substring = little;
-		big = result + 1;
-		len += (sub_len - 1);
+		if (check_substr(big, little, len))
+			return ((char *)big);
+		big++;
+		len--;
 	}
 	return (NULL);
 }

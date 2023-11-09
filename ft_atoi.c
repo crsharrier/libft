@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 20:43:04 by csharrie          #+#    #+#             */
-/*   Updated: 2023/09/28 11:02:52 by crsharrier       ###   ########.fr       */
+/*   Updated: 2023/11/04 09:12:11 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 static int	ft_power(int nb, int power)
 {
@@ -61,7 +59,7 @@ int	ft_atoi(const char *str)
 		str++;
 	if (!(*str >= '0' && *str <= '9'))
 		return (0);
-	start_of_digits = (char*)str;
+	start_of_digits = (char *)str;
 	while (*str >= '0' && *str <= '9')
 	{
 		digit_count++;

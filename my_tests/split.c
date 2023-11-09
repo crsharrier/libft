@@ -1,36 +1,43 @@
 #include "../libft.h"
 #include "testing.h"
-#include<unistd.h>
+#include <unistd.h>
+#include <string.h>
+
+//int count_words(char const *str, char delim);
+
+int		array_len(char **array){
+	int i;
+
+	i = 0;
+	while(array[i] != 0)
+		i++;
+	return (i);
+}
 
 void	print_strings(char **strs)
 {
 	int		i;
-	int		j;
 
+	//printf("array length = %i\n", array_len(strs));
 	i = 0;
 	while (strs[i])
 	{
-		j = 0;
-		while (strs[i][j])
-		{
-			//write(1, (strs[i] + j), 1);
-			printf("%c", strs[i][j]);
-			j++;
-		}
-		//write(1, "\n", 1);
+		printf("%s", strs[i]);
 		printf("_");
 		i++;
 	}
-	//write(1, "\n\n", 1);
 }
 
 int	main(void)
 {
-	char	*str1 = "let's go home";
+	char	*str1 = "Tripouille";
 	char	*str2 = "xricexbeansx";
 	char	*str3 = "999";
 
-	printf("|%s|, \' \' --> \t|", str1);
+	
+	//printf("array_len" (ft_split(str1, ' ')));
+	//print_strings(ft_split(splitme, ' '));
+
 	print_strings(ft_split(str1, ' '));
 	printf("|");
 	printf("\n");
@@ -43,7 +50,6 @@ int	main(void)
 	printf("|");
 	printf("\n");
 
-
-
+	//printf("count_words: %i\n", count_words("", ' '));
 	return (0);
 }

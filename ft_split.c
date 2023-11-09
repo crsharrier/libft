@@ -3,85 +3,94 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:37:53 by crsharrier        #+#    #+#             */
-/*   Updated: 2023/09/15 07:08:37 by crsharrier       ###   ########.fr       */
+/*   Updated: 2023/11/04 11:21:07 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-static int	count_delimiters(char const *s, char c)
+static char	*get_substr(char const *str, char delim)
 {
-	int	i;
-	int	n_delimiters;
-
-	i = 0;
-	n_delimiters = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			n_delimiters++;
-		i++;
-	}
-	return (n_delimiters);
-}
-
-static int	*get_indices(char const *s, char c, int n_delimiters)
-{
-	int	i;
-	int	j;
-	int	*indices;
-
-	i = 0;
-	j = 0;
-	indices = malloc(sizeof(int) * (n_delimiters + 2));
-	indices[j++] = -1;
-	while (s[i])
-	{
-		if (s[i] == c)
-			indices[j++] = i;
-		i++;
-	}
-	indices[j] = i;
-	return (indices);
-}
-
-static void	ft_split_process(char const *s, char c, char **result, int n_delim)
-{
-	char	*substr;
-	int		*indices;
 	int		i;
-	int		j;
-	int		k;
+	char	*result;
 
-	indices = get_indices(s, c, n_delim);
-	result[n_delim + 1] = NULL;
-	if (n_delim == 0)
-		result[0] = (char *)s;
 	i = 0;
-	while (i < (n_delim + 1))
+	while (str[i] != delim && str[i] != 0)
+		i++;
+	result = malloc(sizeof(char) * (i + 1));
+	if (result == NULL)
+		return (NULL);
+	result[i] = 0;
+	i = 0;
+	while (str[i] != delim && str[i] != 0)
 	{
-		substr = malloc(sizeof(char) * (indices[i + 1] - indices[i]));
-		j = indices[i] + 1;
-		k = 0;
-		while (j < indices[i + 1])
-			substr[k++] = s[j++];
-		substr[k] = '\0';
-		result[i] = substr;
+		result[i] = str[i];
 		i++;
 	}
-	free(indices);
+	return (result);
+}
+
+static int	count_words(char const *str, char delim)
+{
+	int	i;
+	int	count;
+	int	in_word;
+
+	i = 0;
+	count = 0;
+	in_word = 0;
+	while (str[i])
+	{
+		if (str[i] != delim && !in_word)
+		{
+			in_word = 1;
+			count++;
+		}
+		else if (str[i] == delim)
+			in_word = 0;
+		i++;
+	}
+	return (count);
+}
+
+static char	**alloc_list(char const *s, char c)
+{
+	int		n_words;
+	char	**str_list;
+
+	n_words = count_words(s, c);
+	str_list = malloc(sizeof(char *) * (n_words + 1));
+	str_list[n_words] = NULL;
+	return (str_list);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
-	int		n_delimiters;
+	char	**str_list;
+	int		i;
+	int		j;
+	int		in_word;
 
-	n_delimiters = count_delimiters(s, c);
-	result = malloc(sizeof(char *) * (n_delimiters + 2));
-	ft_split_process(s, c, result, n_delimiters);
-	return (result);
+	str_list = alloc_list(s, c);
+	if (count_words(s, c) == 0)
+		return (str_list);
+	i = 0;
+	j = 0;
+	in_word = 0;
+	while (s[i])
+	{
+		if (s[i] != c && !in_word)
+		{
+			str_list[j++] = get_substr(s + i, c);
+			in_word = 1;
+		}
+		else if (s[i] == c)
+			in_word = 0;
+		i++;
+	}
+	return (str_list);
 }

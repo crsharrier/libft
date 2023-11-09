@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csharrie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:55:20 by csharrie          #+#    #+#             */
-/*   Updated: 2023/09/08 13:03:46 by csharrie         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:39:17 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	*ft_bzero(void *s, int n)
 {
-	int	i;
-	unsigned char	*p = s;
+	int				i;
+	unsigned char	*p;
 
+	p = s;
 	i = 0;
-	while(i < n)
-		p[i++] = (unsigned char)'\0';
-	return(s);
+	while (i < n)
+		p[i++] = (unsigned char) '\0';
+	return (s);
 }

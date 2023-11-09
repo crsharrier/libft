@@ -21,4 +21,6 @@ int	main(void)
 	printf("Result for calloc (%i, %i)= %p\n", INT_MAX, INT_MAX, result);
 	result = ft_calloc(LONG_MIN, LONG_MIN);
 	printf("Result for calloc (%i, %i)= %p\n", INT_MIN, INT_MIN, result);
+	result = ft_calloc(LONG_MIN, LONG_MIN);
+	printf("Result for calloc (%i, %i)= %p\n", 0, 0, result);
 	}
