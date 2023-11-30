@@ -6,9 +6,10 @@
 /*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:52:02 by crsharrier        #+#    #+#             */
-/*   Updated: 2023/11/04 15:32:41 by csharrie         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:56:36 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "libft.h"
 
@@ -16,7 +17,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	len;
-
 
 	len = ft_strlen(src);
 	if (!size)

@@ -6,7 +6,7 @@
 /*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:32:59 by crsharrier        #+#    #+#             */
-/*   Updated: 2023/11/04 15:30:00 by csharrie         ###   ########.fr       */
+/*   Updated: 2023/11/09 13:05:08 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	char	*result;
-	
+
 	i = 0;
 	while (s[i])
 		i++;

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 08:54:20 by csharrie          #+#    #+#             */
-/*   Updated: 2023/11/09 10:23:14 by csharrie         ###   ########.fr       */
+/*   Created: 2023/11/01 09:00:03 by csharrie          #+#    #+#             */
+/*   Updated: 2023/11/09 13:04:50 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* 
-Adds `new` to the beginning of `lst`. 
-
-*lst is set to new i.e. the new, 'first' node.
-
-*/
-
-void    ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_lstsize(t_list *lst)
 {
-    if (*lst != NULL)
-        new->next = *lst;
-    *lst = new;
+	int		count;
+	t_list	*current_node;
+
+	if (lst == NULL)
+		return (0);
+	count = 1;
+	current_node = lst;
+	while (current_node->next)
+	{
+		current_node = current_node->next;
+		count++;
+	}
+	return (count);
 }
