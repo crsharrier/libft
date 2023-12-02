@@ -26,6 +26,7 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlcat(char *dest, const char *src, size_t size);
 t_list		*ft_lstnew(void *content);
 t_list		*ft_lstlast(t_list *lst);
+t_list  	*ft_lstget(t_list *lst, int index);
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
