@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 14:32:49 by csharrie          #+#    #+#             */
-/*   Updated: 2023/11/01 15:46:21 by csharrie         ###   ########.fr       */
+/*   Updated: 2023/12/03 09:08:52 by crsharrier       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <stdarg.h>
+# include <stdlib.h>
 
 typedef struct s_list
 {
@@ -28,6 +30,7 @@ t_list		*ft_lstnew(void *content);
 t_list		*ft_lstlast(t_list *lst);
 t_list  	*ft_lstget(t_list *lst, int index);
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void		ft_free_strlist(char **strlist);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 void		ft_lstclear(t_list **lst, void (*del)(void *));
@@ -58,6 +61,7 @@ char		*ft_itoa(int nb);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		**ft_split(char const *s, char c);
+char		**ft_strlist(int num, ...);
 int			ft_atoi(const char *str);
 int			ft_lstsize(t_list *lst);
 int			ft_strncmp(const char *s1, const char *s2, unsigned int n);
