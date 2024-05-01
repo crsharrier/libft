@@ -7,41 +7,43 @@ isascii isprint toupper tolower calloc strdup substr strjoin strtrim \
 split itoa strmapi putchar_fd putstr_fd putendl_fd putnbr_fd striteri
 BONUS:= lstadd_back lstadd_front lstclear lstdelone lstiter lstlast \
 lstmap lstnew lstsize 
-EXTRA:= lstget strlist free_strlist
-OBJS := $(addsuffix .o, $(addprefix ft_, $(MANDATORY)))
-BONUS_OBJS := $(addsuffix .o, $(addprefix ft_, $(BONUS)))
-EXTRA_OBJS := $(addsuffix .o, $(addprefix ft_, $(EXTRA)))
+
+MANDATORY_PREFIX:= ./srcs/mandatory/ft_
+BONUS_PREFIX:= ./srcs/bonus/ft_
+
+INCLUDES_DIR:= ./includes
+
+OBJS := $(addsuffix .o, $(addprefix $(MANDATORY_PREFIX), $(MANDATORY)))
+BONUS_OBJS := $(addsuffix .o, $(addprefix $(BONUS_PREFIX), $(BONUS)))
+
+EXTRA:= get_next_line
+
 AR := ar rcs
 RM := rm -f
 
-all: $(NAME) bonus extra
+all: $(NAME) bonus
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
-ft_%.o : ft_%.c libft.h
-	$(CC) $(CFLAGS) -c $< -o $@
+$(MANDATORY_PREFIX)%.o: $(MANDATORY_PREFIX)%.c $(INCLUDES_DIR)/libft.h
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES_DIR)
 
 #=================================
 
 bonus: $(BONUS_OBJS)
 	$(AR) $(NAME) $^
 
-$(BONUS_OBJS): ft_%.o : ft_%.c libft.h
-	$(CC) $(CFLAGS) -c $< -o $@
+$(BONUS_PREFIX)%.o: $(BONUS_PREFIX)%.c $(INCLUDES_DIR)/libft.h
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES_DIR)
 
 #=================================
 
 extra: $(EXTRA_OBJS)
 	$(AR) $(NAME) $^
 
-$(EXTRA_OBJS): ft_%.o : ft_%.c libft.h
-	$(CC) $(CFLAGS) -c $< -o $@
 
 #=================================
-
-test:
-	make && cc -g tests/test_strlist.c ft_strdup.c ft_free_strlist.c ft_strlist.c -I . && ./a.out 
 
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
