@@ -6,7 +6,7 @@
 /*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:25:27 by csharrie          #+#    #+#             */
-/*   Updated: 2023/11/01 17:01:05 by csharrie         ###   ########.fr       */
+/*   Updated: 2024/05/01 10:58:21 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	check_substr(const char *big, const char *little, size_t len)
 	{
 		i++;
 		len--;
-	}	
+	}
 	if (little[i] == 0)
 		return (1);
 	return (0);

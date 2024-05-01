@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:40:19 by crsharrier        #+#    #+#             */
-/*   Updated: 2023/11/15 16:59:49 by csharrie         ###   ########.fr       */
+/*   Updated: 2024/05/01 10:58:03 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <string.h>
 

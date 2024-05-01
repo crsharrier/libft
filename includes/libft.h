@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crsharrier <crsharrier@student.42.fr>      +#+  +:+       +#+        */
+/*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 14:32:49 by csharrie          #+#    #+#             */
-/*   Updated: 2023/12/03 09:08:52 by crsharrier       ###   ########.fr       */
+/*   Updated: 2024/05/01 10:58:52 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlcat(char *dest, const char *src, size_t size);
 t_list		*ft_lstnew(void *content);
 t_list		*ft_lstlast(t_list *lst);
-t_list  	*ft_lstget(t_list *lst, int index);
+t_list		*ft_lstget(t_list *lst, int index);
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void		ft_free_strlist(char **strlist);
 void		ft_lstadd_back(t_list **lst, t_list *new);
