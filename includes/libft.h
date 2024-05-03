@@ -6,7 +6,7 @@
 /*   By: csharrie <csharrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 14:32:49 by csharrie          #+#    #+#             */
-/*   Updated: 2024/05/01 10:58:52 by csharrie         ###   ########.fr       */
+/*   Updated: 2024/05/03 10:01:04 by csharrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <string.h>
 # include <stdarg.h>
 # include <stdlib.h>
+
+# include "get_next_line.h" 
+# include "ft_printf.h" 
 
 typedef struct s_list
 {
@@ -28,9 +31,7 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlcat(char *dest, const char *src, size_t size);
 t_list		*ft_lstnew(void *content);
 t_list		*ft_lstlast(t_list *lst);
-t_list		*ft_lstget(t_list *lst, int index);
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-void		ft_free_strlist(char **strlist);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 void		ft_lstclear(t_list **lst, void (*del)(void *));
@@ -61,7 +62,6 @@ char		*ft_itoa(int nb);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		**ft_split(char const *s, char c);
-char		**ft_strlist(int num, ...);
 int			ft_atoi(const char *str);
 int			ft_lstsize(t_list *lst);
 int			ft_strncmp(const char *s1, const char *s2, unsigned int n);

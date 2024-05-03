@@ -5,7 +5,6 @@ INCLUDES_DIR:= ./includes
 
 MANDATORY_PREFIX:= ./srcs/mandatory/ft_
 BONUS_PREFIX:= ./srcs/bonus/ft_
-EXTRA_PREFIX:= ./srcs/extra/
 
 MANDATORY:= memset bzero memcpy memmove memchr memcmp strlen strlcpy \
 strlcat strchr strrchr strnstr strncmp atoi isalpha isdigit isalnum \
@@ -15,11 +14,25 @@ split itoa strmapi putchar_fd putstr_fd putendl_fd putnbr_fd striteri
 BONUS:= lstadd_back lstadd_front lstclear lstdelone lstiter lstlast \
 lstmap lstnew lstsize 
 
-EXTRA:= get_next_line/get_next_line get_next_line/get_next_line_utils
-
 OBJS := $(addsuffix .o, $(addprefix $(MANDATORY_PREFIX), $(MANDATORY)))
 BONUS_OBJS := $(addsuffix .o, $(addprefix $(BONUS_PREFIX), $(BONUS)))
-EXTRA_OBJS := $(addsuffix .o, $(addprefix $(EXTRA_PREFIX), $(EXTRA)))
+
+# Extra ===========================================
+
+GNL_PREFIX:= ./srcs/extra/get_next_line/
+GNL:= get_next_line get_next_line_utils \
+
+PRINTF_PREFIX:= ./srcs/extra/ft_printf/
+PRINTF:= ft_printf parse_flags \
+	conversions/conversions1 conversions/conversions2 \
+	conversions/ft_ullong_atoi conversions/ft_ullong_itoa \
+	conversions/ft_unsigned_atoi conversions/ft_unsigned_itoa \
+	conversions/hex_conversion
+
+EXTRA_OBJS := $(addsuffix .o, $(addprefix $(GNL_PREFIX), $(GNL))) \
+	$(addsuffix .o, $(addprefix $(PRINTF_PREFIX), $(PRINTF)))
+
+# =================================================
 
 AR := ar rcs
 RM := rm -f
