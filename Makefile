@@ -19,6 +19,9 @@ BONUS_OBJS := $(addsuffix .o, $(addprefix $(BONUS_PREFIX), $(BONUS)))
 
 # Extra ===========================================
 
+EXTRA_PREFIX:= ./srcs/extra/ft_
+EXTRA:= atoll
+
 GNL_PREFIX:= ./srcs/extra/get_next_line/
 GNL:= get_next_line get_next_line_utils \
 
@@ -30,7 +33,8 @@ PRINTF:= ft_printf parse_flags \
 	conversions/hex_conversion
 
 EXTRA_OBJS := $(addsuffix .o, $(addprefix $(GNL_PREFIX), $(GNL))) \
-	$(addsuffix .o, $(addprefix $(PRINTF_PREFIX), $(PRINTF)))
+	$(addsuffix .o, $(addprefix $(PRINTF_PREFIX), $(PRINTF))) \
+	$(addsuffix .o, $(addprefix $(EXTRA_PREFIX), $(EXTRA)))
 
 # =================================================
 
@@ -58,8 +62,29 @@ $(BONUS_PREFIX)%.o: $(BONUS_PREFIX)%.c $(INCLUDES_DIR)/libft.h
 extra: $(EXTRA_OBJS)
 	$(AR) $(NAME) $^
 
-$(EXTRA_PREFIX)%.o: $(EXTRA_PREFIX)%.c $(INCLUDES_DIR)/*.h
+$(PRINTF_PREFIX)%.o: $(PRINTF_PREFIX)%.c $(INCLUDES_DIR)/ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES_DIR)
+
+$(GNL_PREFIX)%.o: $(GNL_PREFIX)%.c $(INCLUDES_DIR)/get_next_line.h
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES_DIR)
+
+$(EXTRA_PREFIX)%.o: $(EXTRA_PREFIX)%.c $(INCLUDES_DIR)/libft.h
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES_DIR)
+
+# test =================================
+
+TESTS:= main utils atoll atoi
+TEST_DIR:= ./test
+TEST_OBJS := $(addsuffix .o, $(addprefix $(TEST_DIR)/test_, $(TESTS))) 
+
+test: $(NAME) bonus extra test.out 
+	./test.out
+
+test.out: $(TEST_OBJS) 
+	$(CC) $(CFLAGS) $^ -L . -lft -I $(INCLUDES_DIR) -I $(TEST_DIR) -o $@
+
+$(TEST_DIR)%.o: $(TEST_DIR)%.c $(TEST_DIR)/test_libft.h
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES_DIR) -I $(TEST_DIR)
 
 #=================================
 

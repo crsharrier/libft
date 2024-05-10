@@ -1,5 +1,5 @@
 *.o
 *.a
 *.swp
-tests/
+test/
 .vscode/
